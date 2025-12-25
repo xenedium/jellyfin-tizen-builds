@@ -173,7 +173,7 @@ jobs:
             sed -i 's/enableSsaRender: true/enableSsaRender: true, supportsTrueHd: true/g' tizen.js
           fi
           sed -i 's/AprZAARz4r/JexZAARz4r/g' config.xml
-          sed -i 's/<name>Jellyfin<\/name>/<name>Jellyfin X<\/name>/g' config.xml
+          sed -i 's/<name>Jellyfin<\/name>/<name>Jellyfin<\/name>/g' config.xml
           rm icon.png
           mv ../icon2.png icon.png
           
@@ -206,12 +206,7 @@ jobs:
         run: |
           expect ./package.exp
           if ${{ matrix.artifact_name != 'Jellyfin' }}; then
-
-            if ${{ matrix.secondary == true }}; then
-              mv "./jellyfin-tizen/release/Jellyfin 2.wgt" "./jellyfin-tizen/release/${{ matrix.artifact_name }}.wgt"
-            else
-              mv "./jellyfin-tizen/release/Jellyfin.wgt" "./jellyfin-tizen/release/${{ matrix.artifact_name }}.wgt"
-            fi
+            mv "./jellyfin-tizen/release/Jellyfin.wgt" "./jellyfin-tizen/release/${{ matrix.artifact_name }}.wgt"
           fi
           
       - name: Print logs
