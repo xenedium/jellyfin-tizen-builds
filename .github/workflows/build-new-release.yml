@@ -172,13 +172,11 @@ jobs:
           if ${{ matrix.true_hd == true }}; then
             sed -i 's/enableSsaRender: true/enableSsaRender: true, supportsTrueHd: true/g' tizen.js
           fi
+          sed -i 's/AprZAARz4r/JexZAARz4r/g' config.xml
+          sed -i 's/<name>Jellyfin<\/name>/<name>Jellyfin X<\/name>/g' config.xml
+          rm icon.png
+          mv ../icon2.png icon.png
           
-          if ${{ matrix.secondary == true }}; then
-            sed -i 's/AprZAARz4r/JepZAARz4r/g' config.xml
-            sed -i 's/<name>Jellyfin<\/name>/<name>Jellyfin 2<\/name>/g' config.xml
-            rm icon.png
-            mv ../icon2.png icon.png
-          fi
           if ${{ matrix.oblong_icon == true }}; then
             rm icon.png
             mv ../iconoblong.png icon.png
